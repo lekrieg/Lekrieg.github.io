@@ -18,9 +18,9 @@ Here's some stuff I did:
 * Did a task goal system wich enables you to have a set of goals to different levels
 * Did some refactoring on old gameplay code
 
-Technology:
+### Technology
 - Unity3D
 - Rider
 
-Task management:
+### Task management
 - Trello
