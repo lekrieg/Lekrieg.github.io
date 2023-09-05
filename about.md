@@ -4,8 +4,15 @@ title: "About Me"
 permalink: /about/
 ---
 
-![Picture 1](/assets/fullsize.png)
+![Picture 1](/assets/about-me-fullsize.png)
 
-Hello! I'm Game Developer, an award-winning game developer who can both program and design games. As you can see from my impressive portfolio, I've worked on lots of different games!
+A simple man addicted in game dev, C++, mangas and animes.
 
-If you're interested in what I can offer your company, please contact me!
+I've worked with several technologies, including:
+Unity3D
+Blender
+C#
+.NET
+AWS
+rabbitMQ
+And some other stuff.
