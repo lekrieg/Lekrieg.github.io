@@ -17,31 +17,37 @@ Game programming and code optimization in general, using Unity as game engine
 * System of objectives by level
 * Refactoring of some already implemented parts of some systems
 * Steamworks configuration on the project with achievements and leaderboards
-	<details>
-	<summary>Simple example of code</summary>
 
-	```C#
-			public static void GiveAchievement(string achievementName)
-			{
-				if (SteamManager.Initialized)
-				{
-					SteamUserStats.GetAchievement(achievementName, out var achievementCompleted);
-					if (!achievementCompleted)
-					{
-						SteamUserStats.SetAchievement(achievementName);
-						SteamUserStats.StoreStats();
-					}
-				}
-			}
-	```
-	</details>
-
+---
 ### Technology
 * Unity3D
 * Rider
 
 ### Task management
 * Trello
+
+---
+
+### CODE
+<details>
+<summary>Simple example of code using steamworks</summary>
+
+```C#
+	public static void GiveAchievement(string achievementName)
+	{
+		if (SteamManager.Initialized)
+		{
+			SteamUserStats.GetAchievement(achievementName, out var achievementCompleted);
+			if (!achievementCompleted)
+			{
+				SteamUserStats.SetAchievement(achievementName);
+				SteamUserStats.StoreStats();
+			}
+		}
+	}
+```
+</details>
+
 
 ### Game prints
 ![Picture 2](/assets/LTBprints/print1.png)
