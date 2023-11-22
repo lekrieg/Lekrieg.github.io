@@ -33,18 +33,18 @@ Game programming and code optimization in general, using Unity as game engine
 <summary>Simple example of code using steamworks</summary>
 
 ```C#
-	public static void GiveAchievement(string achievementName)
+public static void GiveAchievement(string achievementName)
+{
+	if (SteamManager.Initialized)
 	{
-		if (SteamManager.Initialized)
+		SteamUserStats.GetAchievement(achievementName, out var achievementCompleted);
+		if (!achievementCompleted)
 		{
-			SteamUserStats.GetAchievement(achievementName, out var achievementCompleted);
-			if (!achievementCompleted)
-			{
-				SteamUserStats.SetAchievement(achievementName);
-				SteamUserStats.StoreStats();
-			}
+			SteamUserStats.SetAchievement(achievementName);
+			SteamUserStats.StoreStats();
 		}
 	}
+}
 ```
 </details>
 
