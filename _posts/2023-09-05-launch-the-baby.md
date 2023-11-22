@@ -8,19 +8,42 @@ preview: /assets/LBT.png
 
 ![Picture 1](/assets/LBT-fullsize.png)
 
-I worked on some gameplay programming and general optmization.
+Game programming and code optimization in general, using Unity as game engine
 
-Here's some stuff I did:
+* Implemented an event-based input system using Unity's new input system
+* I improved the performance of some parts of the game by creating some pools of objects, which drastically improved part of the performance bottleneck that existed
+* Improved some gameplay systems (obstacles and stuff like that)
+* Implemented movement through the game menus
+* System of objectives by level
+* Refactoring of some already implemented parts of some systems
+* Steamworks configuration on the project with achievements and leaderboards
+<details>
+<summary>Simple example of code</summary>
 
-* Added a new input system based on events for the game using the new input system from Unity
-* Improved the performance of the game making some object pooling(wich drastically improved the performance in general)
-* Did a rework on some gameplay systems already existents(obstacles and some other things)
-* Did a task goal system wich enables you to have a set of goals to different levels
-* Did some refactoring on old gameplay code
+```C#
+	public static void GiveAchievement(string achievementName)
+	{
+		if (SteamManager.Initialized)
+		{
+			SteamUserStats.GetAchievement(achievementName, out var achievementCompleted);
+			if (!achievementCompleted)
+			{
+				SteamUserStats.SetAchievement(achievementName);
+				SteamUserStats.StoreStats();
+			}
+		}
+	}
+```
+</details>
 
 ### Technology
-- Unity3D
-- Rider
+* Unity3D
+* Rider
 
 ### Task management
-- Trello
+* Trello
+
+### Game prints
+![Picture 2](/assets/LTBprints/print1.png)
+![Picture 3](/assets/LTBprints/print2.png)
+![Picture 4](/assets/LTBprints/print3.png)
