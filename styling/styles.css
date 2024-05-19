@@ -123,6 +123,7 @@
 .experience-content h3 {
     margin: 0 0 10px 0;
     font-size: 1.2em;
+    color: #555;
 }
 
 .work-time {
@@ -140,6 +141,7 @@
 /** icons **/
 .social-links {
     display: flex;
+	background: #fff;
     justify-content: center;
     margin-top: 20px;
 }
