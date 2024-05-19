@@ -30,7 +30,7 @@
   }
   
   .buttons {
-	width: 400px;
+	width: auto;
 	position: fixed;
 	top: 5%;
 	left: 10%;

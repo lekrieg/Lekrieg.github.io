@@ -11,6 +11,7 @@
 	</video>
 
 	<div class="buttons">
+		<button id="btn1" onclick="loadContent('./pages/home.html')">Projects</button>
 		<button id="btn1" onclick="loadContent('./pages/projects.html')">Projects</button>
 		<button id="btn2" onclick="loadContent('./pages/experiences.html')">Experiences</button>
 		<button id="btn3" onclick="loadContent('./pages/education.html')">Education</button>
@@ -21,6 +22,11 @@
 	</div>
 
 	<script src="./js/utils.js"></script>
+	<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            loadContent('./pages/home.html');
+        });
+    </script>
 </body>
 
 </html>
