@@ -22,9 +22,10 @@
 	width: 80%;
 	height: 70%;
 	padding: 20px;
-
 	overflow: auto;
+    overflow-y: auto;
 	border: 1px solid #ccc;
+    border-radius: 8px;
   }
   
   .buttons {
@@ -44,16 +45,6 @@
 	background: #ddd;
 	color: black;
   }
-
-  .scrollable-container {
-    width: 100%;
-    height: auto;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    overflow-y: auto;
-    padding: 10px;
-    background-color: #ffffff00;
-}
 
 .card-container {
     display: flex;
