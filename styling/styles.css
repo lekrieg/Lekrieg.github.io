@@ -89,3 +89,50 @@
     font-size: 0.9em;
     color: #555;
 }
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.social-links .icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.social-links .icon:hover {
+    transform: scale(1.1);
+}
+
+.resume-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+iframe {
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #0056b3;
+}
