@@ -47,6 +47,7 @@
 	color: black;
   }
 
+/** Project cards **/
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -90,6 +91,53 @@
     color: #555;
 }
 
+/** Education and experience cards **/
+.experience-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    width: calc(33.333% - 20px); /* Ajuste a largura conforme necessário */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.experience-card:hover {
+    transform: scale(1.05);
+}
+
+.experience-logo {
+    width: 100%;
+    height: 150px; /* Ajuste conforme necessário */
+    object-fit: contain;
+    background-color: #f9f9f9;
+    padding: 10px;
+}
+
+.experience-content {
+    padding: 15px;
+}
+
+.experience-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+}
+
+.work-time {
+    margin: 0 0 10px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.experience-content p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #333;
+}
+
+/** icons **/
 .social-links {
     display: flex;
     justify-content: center;
@@ -107,6 +155,7 @@
     transform: scale(1.1);
 }
 
+/** resume stuff **/
 .resume-container {
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
