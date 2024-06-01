@@ -26,7 +26,7 @@ const Projects = {
             Description: "Have you heard my Under Construction joke?<br>It`s not done yet",
             NoOfProjectImages: 1
         },
-        Snake3D: {
+        LaunchTheBaby: {
             ID: "LaunchTheBaby",
             Name: "Launch the baby",
             Keywords: "Published Steam Game, C#, Unity3D, Steamworks",
