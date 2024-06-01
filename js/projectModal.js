@@ -6,7 +6,7 @@ var ProfessionalProjects = [
     // Projects.Details.TileVisualiser,
     // Projects.Details.Homography,
     // Projects.Details.ShiroDash,
-    Projects.Details.LaunchTheBaby
+    Projects.Details.LaunchTheBaby,
 ];
 var GameJamProjects = [
     // Projects.Details.MREncyclopedia,
@@ -17,7 +17,7 @@ var GameJamProjects = [
 var PersonalProjects = [
     // Projects.Details.TimeMechmaybe,
     // Projects.Details.Clone1942,
-    // Projects.Details.WorkInProgress,
+    Projects.Details.WorkInProgress,
     // Projects.Details.ChemicalCarriageway,
     // Projects.Details.Snake3D,
     // Projects.Details.Gameplay,// MarioCloneTeaching,?
