@@ -42,5 +42,20 @@ const Projects = {
             YoutubeVideoId: "RkyEohiyZEo",
             NoOfProjectImages: 2
         },
+		Polygon: {
+            ID: "Polygon",
+            Name: "Polygon",
+            Keywords: "Published itch.io Game, C++, SFML",
+            Description: `Polygon is a silly, arcade-like game, where you Kill as many waves of enemies you can and try to beat your highscores.
+			<br><ul>
+				<li>I did a base engine with SFML</li>
+				<li>Save game implementation using binary files</li>
+				<li>ECS implementation</li>
+			</ul>`,
+            MoreInfoLink: "https://lekrieg.itch.io/polygon",
+            GithubProjectRepo: "",
+            YoutubeVideoId: "VQEiylVpDVw",
+            NoOfProjectImages: 4
+        },
     }
 };
