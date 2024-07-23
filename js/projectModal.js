@@ -17,6 +17,7 @@ var GameJamProjects = [
 var PersonalProjects = [
     // Projects.Details.TimeMechmaybe,
     // Projects.Details.Clone1942,
+	Projects.Details.Polygon,
     Projects.Details.WorkInProgress,
     // Projects.Details.ChemicalCarriageway,
     // Projects.Details.Snake3D,
