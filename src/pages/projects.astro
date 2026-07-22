@@ -6,31 +6,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Just copy an object and change the fields
 // ========================================
 const projects = [
-  {
-    title: 'Project One',
-    description: 'Description of your first project. What does it do? What did you learn?',
-    tech: ['C++', 'OpenGL'],
-    link: 'https://github.com/yourusername/project-one',
-    image: '/projects/project1.png', // optional, put image in public/projects/
+{
+    title: 'Trump Ballroom Blitz',
+    description: 'Game made for a client using Unity3D. I worked as a lead programmer and project manager,
+    distributing tasks to some people when needed. We plan to add some more stuff on the game later.',
+    tech: ['C#', 'Unity', 'DinoFracture'],
+    link: 'https://store.steampowered.com/app/4443070/Trump_Ballroom_Blitz/',
   },
   {
-    title: 'Project Two',
-    description: 'Description of your second project.',
+    title: 'Launch the baby',
+    description: 'Game programming and code optimization in general, using Unity as game engine.',
     tech: ['C#', 'Unity'],
-    link: 'https://github.com/yourusername/project-two',
+    link: 'store.steampowered.com/app/2353270/Launch_The_Baby/',
+    // image: '/projects/project1.png', // optional, put image in public/projects/
   },
   {
-    title: 'Project Three',
-    description: 'Description of your third project.',
-    tech: ['Python', 'Pygame'],
-    link: 'https://github.com/yourusername/project-three',
+    title: 'Launch the baby',
+    description: 'Game programming and code optimization in general, using Unity as game engine.',
+    tech: ['C#', 'Unity'],
+    link: 'store.steampowered.com/app/2353270/Launch_The_Baby/',
+    // image: '/projects/project1.png', // optional, put image in public/projects/
+  },
+  {
+    title: 'Revhead - Translation to PT-BR',
+    description: 'Helped to finish the translation to PT-BR.',
+    tech: ['C#', 'Unity'],
+    link: 'https://store.steampowered.com/app/589760/Revhead/',
+  },
+  {
+    title: 'Abyss benchmark lib',
+    description: 'A simple lib to benchmark stuff.',
+    tech: ['C#'],
+    link: 'https://github.com/lekrieg/AbyssBenchmark',
   },
 ];
 ---
 
 <BaseLayout current="Projects" title="Projects — Daniel Henrique">
   <h1>🎮 Projects</h1>
-  <p>A collection of things I've built. Click any card to view the source on GitHub.</p>
+  <p>A collection of things I've built or helped to finish. Click any card to view more.</p>
 
   <div class="projects-grid">
     {projects.map((project) => (
