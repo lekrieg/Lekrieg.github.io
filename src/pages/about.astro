@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout current="About Me" title="About Me — Daniel Henrique">
+  <h1>👤 About Me</h1>
+
+  <p>
+    I'm <strong>Daniel Henrique</strong>, a game developer passionate about
+    programming, graphics, and building interactive experiences. I love the
+    challenges that games present — performance, architecture, and creativity
+    all wrapped into one.
+  </p>
+
+  <h2>🛡 Skills</h2>
+  <ul class="skill-list">
+    <li><span class="skill-cat">Languages:</span> C++, C#, Python, JavaScript</li>
+    <li><span class="skill-cat">Graphics:</span> OpenGL, Vulkan, GLSL Shaders</li>
+    <li><span class="skill-cat">Engines:</span> Unreal Engine, Unity</li>
+    <li><span class="skill-cat">Tools:</span> Git, Blender, CMake</li>
+  </ul>
+
+  <h2>⚔ What I Do</h2>
+  <p>
+    I build games, game engines, and tools. Whether it's rendering pipelines,
+    gameplay systems, or editor tools — I enjoy every part of the process.
+  </p>
+
+  <h2>🌿 Interests</h2>
+  <p>
+    Game engine architecture, graphics programming, procedural generation,
+    and anything that combines math with cool visuals.
+  </p>
+
+  <h2>📬 Contact</h2>
+  <p>
+    Want to get in touch? You can find me on:
+  </p>
+  <ul class="contact-list">
+    <li><a href="https://github.com/yourusername" target="_blank">▶ GitHub</a></li>
+    <li><a href="mailto:your.email@example.com">▶ Email</a></li>
+  </ul>
+</BaseLayout>
+
+<style>
+  .skill-cat {
+    color: var(--accent);
+    font-weight: bold;
+  }
+
+  .skill-list, .contact-list {
+    list-style: none;
+    margin-left: 0;
+  }
+
+  .skill-list li, .contact-list li {
+    padding: 0.3rem 0;
+  }
+
+  .contact-list a {
+    font-size: 1.15rem;
+  }
+</style>

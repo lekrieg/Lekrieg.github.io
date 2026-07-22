@@ -1,0 +1,182 @@
+---
+const { current = '' } = Astro.props;
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About Me', href: '/about' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Resume', href: '/resume' },
+];
+
+// Your info 👇
+const siteConfig = {
+  name: 'Daniel Henrique',
+  profession: 'Game Developer',
+  photo: '/profile.jpg',  // add your photo later in public/profile.jpg
+};
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <!-- Identity: photo + name + profession -->
+    <a href="/" class="identity">
+      <div class="photo-frame">
+        <img src={siteConfig.photo} alt={siteConfig.name} class="profile-photo" />
+      </div>
+      <div class="identity-text">
+        <span class="name">{siteConfig.name}</span>
+        <span class="profession">{siteConfig.profession}</span>
+      </div>
+    </a>
+
+    <!-- Navigation tabs — retro game menu style -->
+    <nav class="tabs">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class:list={["tab", { active: current === item.label }]}
+          >
+            <span class="tab-bracket">[</span>
+            {item.label}
+            <span class="tab-bracket">]</span>
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--bg-card);
+    border-bottom: 2px solid var(--border-bright);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Subtle gold glow line at bottom of header */
+  .site-header::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.5;
+  }
+
+  .header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* ===== IDENTITY ===== */
+  .identity {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+  }
+
+  .photo-frame {
+    position: relative;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    border-radius: 4px;
+  }
+
+  .profile-photo {
+    width: 46px;
+    height: 46px;
+    border-radius: 3px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Placeholder when no image */
+  .photo-frame:has(img[src="/profile.jpg"]) {
+    /* If the image fails to load, show a retro sprite placeholder */
+  }
+
+  .identity-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .name {
+    font-family: var(--font-medieval);
+    font-size: 1.25rem;
+    color: var(--text-bright);
+    font-weight: bold;
+  }
+
+  .profession {
+    font-family: var(--font-retro);
+    font-size: 1.1rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== TABS ===== */
+  .tabs {
+    display: flex;
+    gap: 0.15rem;
+    flex-wrap: wrap;
+  }
+
+  .tab {
+    font-family: var(--font-pixel);
+    font-size: 0.6rem;
+    color: var(--text-muted);
+    padding: 0.6rem 0.75rem;
+    border-radius: 0;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    border: 1px solid transparent;
+  }
+
+  .tab:hover {
+    color: var(--accent-glow);
+    background: var(--bg-hover);
+    border-color: var(--border-bright);
+    text-decoration: none;
+  }
+
+  .tab.active {
+    color: var(--accent-glow);
+    background: var(--bg-hover);
+    border-color: var(--accent);
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+  }
+
+  .tab-bracket {
+    color: var(--accent-2);
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 720px) {
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .tabs {
+      width: 100%;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+    }
+
+    .tab {
+      white-space: nowrap;
+    }
+  }
+</style>

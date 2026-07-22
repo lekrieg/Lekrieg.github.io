@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// ========================================
+// EDIT YOUR RESUME DATA HERE
+// To add more entries, just add objects to the arrays
+// ========================================
+const resume = {
+  experience: [
+    {
+      role: 'Game Developer',
+      company: 'Company / Project Name',
+      period: '2024 — Present',
+      description: 'Working on game engine architecture and graphics.',
+    },
+    {
+      role: 'Freelance Developer',
+      company: 'Self-employed',
+      period: '2023 — 2024',
+      description: 'Built tools and small games for clients.',
+    },
+  ],
+  education: [
+    {
+      degree: 'B.S. in Computer Science',
+      school: 'University Name',
+      period: '2020 — 2024',
+      description: 'Focus on game programming and simulation.',
+    },
+  ],
+  skills: {
+    'Languages': ['C++', 'C#', 'Python', 'JavaScript'],
+    'Graphics': ['OpenGL', 'Vulkan', 'GLSL'],
+    'Engines': ['Unreal Engine', 'Unity'],
+    'Tools': ['Git', 'Blender', 'CMake'],
+  },
+};
+---
+
+<BaseLayout current="Resume" title="Resume — Daniel Henrique">
+  <h1>📜 Resume</h1>
+
+  <!-- Download link — put your resume PDF in public/resume.pdf -->
+  <p class="download-link">
+    <a href="/resume.pdf" download>
+      ⬇ Download Full Resume (PDF)
+    </a>
+  </p>
+
+  <h2>⚔ Experience</h2>
+  {resume.experience.map(job => (
+    <div class="resume-item">
+      <div class="resume-header">
+        <h3>{job.role}</h3>
+        <span class="company">{job.company}</span>
+      </div>
+      <span class="period">{job.period}</span>
+      <p>{job.description}</p>
+    </div>
+  ))}
+
+  <h2>🎓 Education</h2>
+  {resume.education.map(edu => (
+    <div class="resume-item">
+      <div class="resume-header">
+        <h3>{edu.degree}</h3>
+        <span class="company">{edu.school}</span>
+      </div>
+      <span class="period">{edu.period}</span>
+      <p>{edu.description}</p>
+    </div>
+  ))}
+
+  <h2>🛡 Skills</h2>
+  {Object.entries(resume.skills).map(([category, items]) => (
+    <div class="skill-group">
+      <h3>{category}</h3>
+      <div class="skill-tags">
+        {items.map(item => <span class="skill-tag">{item}</span>)}
+      </div>
+    </div>
+  ))}
+</BaseLayout>
+
+<style>
+  .download-link {
+    margin-bottom: 2rem;
+  }
+
+  .download-link a {
+    display: inline-block;
+    background: var(--bg-deep);
+    border: 1px solid var(--accent);
+    padding: 0.6rem 1.25rem;
+    font-size: 1.1rem;
+    transition: all 0.15s ease;
+  }
+
+  .download-link a:hover {
+    background: var(--accent);
+    color: var(--bg-deep) !important;
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  }
+
+  .resume-item {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--accent-2);
+  }
+
+  .resume-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .resume-header h3 {
+    margin: 0 !important;
+    color: var(--text-bright) !important;
+  }
+
+  .company {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+  }
+
+  .period {
+    font-family: var(--font-pixel);
+    font-size: 0.55rem;
+    color: var(--accent);
+    display: block;
+    margin: 0.25rem 0 0.5rem;
+  }
+
+  .skill-group {
+    margin-bottom: 1rem;
+  }
+
+  .skill-group h3 {
+    color: var(--accent-2-glow) !important;
+    margin-bottom: 0.4rem !important;
+  }
+
+  .skill-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .skill-tag {
+    background: var(--bg-deep);
+    color: var(--text);
+    padding: 0.25rem 0.65rem;
+    border: 1px solid var(--border-bright);
+    font-size: 1rem;
+  }
+</style>

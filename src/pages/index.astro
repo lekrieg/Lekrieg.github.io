@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date - a.data.date)
+  .slice(0, 3);
+---
+
+<BaseLayout current="Home" title="Daniel Henrique — Game Developer">
+  <div class="hero">
+    <h1 class="hero-title">Daniel Henrique</h1>
+    <p class="hero-sub">⚔ Game Developer ⚔</p>
+    <p class="hero-desc">
+      Welcome to my realm. I build games, game engines, and tools.
+      Here you'll find my projects, tutorials, and development logs.
+    </p>
+  </div>
+
+  <h2>📜 Latest Quests (Posts)</h2>
+  {
+    posts.length > 0 ? (
+      <div class="home-posts">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}`} class="home-post">
+            <span class="home-cat">{post.data.category}</span>
+            <span class="home-title">{post.data.title}</span>
+            <span class="home-date">{post.data.date.toLocaleDateString()}</span>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <p>No posts yet. Check back soon!</p>
+    )
+  }
+
+  <p class="view-all"><a href="/blog">▶ View All Posts</a></p>
+
+  <h2>📍 Quick Menu</h2>
+  <div class="quick-menu">
+    <a href="/about" class="menu-item">
+      <span class="menu-icon">👤</span> About Me
+    </a>
+    <a href="/projects" class="menu-item">
+      <span class="menu-icon">🎮</span> Projects
+    </a>
+    <a href="/blog" class="menu-item">
+      <span class="menu-icon">📖</span> Blog
+    </a>
+    <a href="/resume" class="menu-item">
+      <span class="menu-icon">📜</span> Resume
+    </a>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 2rem 1rem;
+    border: 2px solid var(--border-bright);
+    background: var(--bg-card);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+
+  .hero::before, .hero::after {
+    content: '◆';
+    position: absolute;
+    color: var(--accent);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.7rem;
+  }
+
+  .hero::before { left: 0.75rem; }
+  .hero::after { right: 0.75rem; }
+
+  .hero-title {
+    font-family: var(--font-medieval) !important;
+    font-size: 2.8rem !important;
+    color: var(--text-bright) !important;
+    text-shadow: 2px 2px 0 var(--bg-deep) !important;
+    border: none !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .hero-sub {
+    font-family: var(--font-pixel);
+    font-size: 0.7rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-desc {
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+  }
+
+  .home-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .home-post {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-2);
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.15s ease;
+    flex-wrap: wrap;
+  }
+
+  .home-post:hover {
+    border-left-color: var(--accent-glow);
+    background: var(--bg-hover);
+    text-decoration: none;
+    transform: translateX(3px);
+  }
+
+  .home-cat {
+    font-family: var(--font-pixel);
+    font-size: 0.5rem;
+    color: var(--accent);
+    background: var(--bg-deep);
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border-bright);
+    text-transform: uppercase;
+  }
+
+  .home-title {
+    flex: 1;
+    color: var(--text-bright);
+    font-size: 1.15rem;
+  }
+
+  .home-date {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+  }
+
+  .view-all {
+    margin-bottom: 2rem;
+  }
+
+  .quick-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.15s ease;
+  }
+
+  .menu-item:hover {
+    border-color: var(--accent);
+    background: var(--bg-hover);
+    color: var(--accent-glow);
+    text-decoration: none;
+  }
+
+  .menu-icon {
+    font-size: 1.2rem;
+  }
+</style>

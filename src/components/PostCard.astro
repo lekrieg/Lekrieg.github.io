@@ -1,0 +1,99 @@
+---
+const { post } = Astro.props;
+---
+
+<a href={`/blog/${post.id}`} class="post-card">
+  <div class="post-card-inner">
+    <div class="post-card-header">
+      <span class="post-category">{post.data.category}</span>
+    </div>
+    <h3 class="post-title">{post.data.title}</h3>
+    <p class="post-description">{post.data.description}</p>
+    <div class="post-meta">
+      <span class="post-date">
+        {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </span>
+      <span class="post-tags">
+        {post.data.tags.map(tag => <span class="tag">#{tag}</span>)}
+      </span>
+    </div>
+  </div>
+</a>
+
+<style>
+  .post-card {
+    display: block;
+    text-decoration: none;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+
+  .post-card-inner {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent-2);
+    padding: 1.25rem;
+    transition: all 0.15s ease;
+  }
+
+  .post-card:hover .post-card-inner {
+    border-color: var(--accent);
+    border-left-color: var(--accent-glow);
+    background: var(--bg-hover);
+    transform: translateX(4px);
+  }
+
+  .post-card:hover {
+    text-decoration: none;
+  }
+
+  .post-category {
+    display: inline-block;
+    background: var(--bg-deep);
+    color: var(--accent);
+    font-family: var(--font-pixel);
+    font-size: 0.55rem;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--accent-2);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.05em;
+  }
+
+  .post-title {
+    font-family: var(--font-medieval);
+    font-size: 1.3rem;
+    color: var(--text-bright);
+    margin-bottom: 0.4rem;
+  }
+
+  .post-card:hover .post-title {
+    color: var(--accent-glow);
+  }
+
+  .post-description {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .post-tags {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    color: var(--accent-2-glow);
+  }
+</style>
